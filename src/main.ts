@@ -12,7 +12,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 const loader = new ObjectLoader();
-loader.load('src/scenes/Egg.json', (loadedScene) => {
+loader.load('./scenes/Egg.json', (loadedScene) => {
 	scene = loadedScene as Scene;
 	camera = scene.getObjectByName('MainCamera') as PerspectiveCamera;
 	camera.aspect = w / h;
