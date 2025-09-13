@@ -4,7 +4,7 @@
 	"homepage": "https://Vanbri.github.io/ff-ff",
 	"scripts": {
 		"predeploy": "vite build",
-		"deploy": "gh-pages -d build"
+		"deploy": "gh-pages -d dist"
 	},
 	"dependencies": {
 		"three": "^0.180.0"
