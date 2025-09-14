@@ -1,5 +1,5 @@
 import { ObjectLoader, PerspectiveCamera, Scene, WebGLRenderer } from 'three';
-import { insertClock } from './scripts/insertClock';
+import { insertClock, onClickEgg } from './scripts';
 
 let w = window.innerWidth;
 let h = window.innerHeight;
@@ -8,6 +8,7 @@ let scene: Scene;
 let camera: PerspectiveCamera;
 
 const renderer = new WebGLRenderer({ antialias: true });
+renderer.shadowMap.enabled = true;
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
@@ -19,6 +20,8 @@ loader.load('./scenes/Egg.json', (loadedScene) => {
 	camera.updateProjectionMatrix();
 
 	insertClock(scene);
+
+	onClickEgg(scene, camera, renderer);
 
 	animate();
 });
@@ -36,6 +39,7 @@ window.addEventListener('resize', () => {
 	camera.updateProjectionMatrix();
 });
 
+/*
 let isDragging = false;
 let prevMouseX = 0;
 
@@ -59,7 +63,6 @@ window.addEventListener('mousemove', (e) => {
 		camera.position.x -= deltaX * sensitivity;
 	}
 });
-
 let prevTouchX = 0;
 
 window.addEventListener('touchstart', (e) => {
@@ -85,3 +88,4 @@ window.addEventListener('touchmove', (e) => {
 		camera.position.x -= deltaX * sensitivity;
 	}
 });
+*/
